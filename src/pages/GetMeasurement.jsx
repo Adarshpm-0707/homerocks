@@ -25,92 +25,93 @@ function GetMeasurement() {
 
   return (
     <section className="py-5 ">
-      <div className="container">
-        <h2 className="section-title text-white mb-3">Book Home Measurement</h2>
-        <p className="text-white mb-4">
+      <div className="container ">
+        <h2 className="section-title text-center fs-1 text-white mb-3">
+          Book Home Measurement
+        </h2>
+        <p className="text-white text-center mb-4">
           Share your details and our team will visit your site for accurate
           measurement and stone suggestions.
         </p>
 
         <div className="row gy-4">
+          {/* LEFT: FORM */}
           <div className="col-lg-7">
-            <form onSubmit={handleSubmit} className="hr-card p-4">
+            <form onSubmit={handleSubmit} className="hr-card gm-card p-4">
               <div className="mb-3">
-                <label className="form-label">Full name</label>
+                <label className="form-label gm-label">Full name</label>
                 <input
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   type="text"
-                  className="form-control"
+                  className="form-control gm-input"
                   required
                 />
               </div>
 
               <div className="mb-3">
-                <label className="form-label">Location</label>
+                <label className="form-label gm-label">Location</label>
                 <input
                   name="location"
                   value={formData.location}
                   onChange={handleChange}
                   type="text"
-                  className="form-control"
+                  className="form-control gm-input"
                   placeholder="City / Area / Landmark"
                   required
                 />
               </div>
 
               <div className="mb-3">
-                <label className="form-label">Area details</label>
+                <label className="form-label gm-label">Area details</label>
                 <textarea
                   name="areaDetails"
                   value={formData.areaDetails}
                   onChange={handleChange}
                   rows="3"
-                  className="form-control"
+                  className="form-control gm-input"
                   placeholder="e.g. 3BHK apartment flooring, 2 bathrooms, staircase"
                   required
                 />
               </div>
 
               <div className="mb-3">
-                <label className="form-label">Material preference</label>
+                <label className="form-label gm-label">Material preference</label>
                 <input
                   name="materialPreference"
                   value={formData.materialPreference}
                   onChange={handleChange}
                   type="text"
-                  className="form-control"
+                  className="form-control gm-input"
                   placeholder="e.g. Italian marble, quartz, or granite"
                 />
               </div>
 
               <div className="mb-3">
-                <label className="form-label">Preferred time slot</label>
+                <label className="form-label gm-label">Preferred time slot</label>
                 <input
                   name="timeSlot"
                   value={formData.timeSlot}
                   onChange={handleChange}
                   type="text"
-                  className="form-control"
+                  className="form-control gm-input"
                   placeholder="e.g. Weekdays 3–6 PM"
                   required
                 />
               </div>
 
               <div className="mb-3">
-                <label className="form-label">WhatsApp number</label>
+                <label className="form-label gm-label">WhatsApp number</label>
                 <input
                   name="whatsapp"
                   value={formData.whatsapp}
                   onChange={handleChange}
                   type="tel"
-                  className="form-control"
+                  className="form-control gm-input"
                   required
                 />
-                <div className="form-text">
-                  WhatsApp auto-confirmation will be sent to this number.
-                </div>
+                
               </div>
 
               <button type="submit" className="btn btn-primary">
@@ -126,10 +127,13 @@ function GetMeasurement() {
             )}
           </div>
 
+          {/* RIGHT: SIDE INFO CARD */}
           <div className="col-lg-5">
-            <div className="hr-card p-4 gm-side-card">
-              <h5 className="fw-semibold mb-2">What happens next?</h5>
-              <ol className="small mb-3">
+            <div className="hr-card gm-card p-4 gm-side-card">
+              <h5 className="fw-semibold mb-2 text-white">
+                What happens next?
+              </h5>
+              <ol className="small mb-3 gm-list">
                 <li>Our team will call/WhatsApp to confirm your slot.</li>
                 <li>An expert will visit the site for measurement.</li>
                 <li>
@@ -137,7 +141,7 @@ function GetMeasurement() {
                   finishes.
                 </li>
               </ol>
-              <p className="small mb-0">
+              <p className="small mb-0 text-white">
                 Need urgent support? Call or WhatsApp us directly and mention{" "}
                 <strong>“Measurement Request”</strong>.
               </p>

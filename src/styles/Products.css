@@ -1,60 +1,231 @@
-/* Category card wrapper */
+/* =========================================
+   BASE / VARIABLES
+========================================= */
+:root {
+  --pr-white: #ffffff;
+  --pr-glass-bg: rgba(0, 0, 0, 0.45);
+  --pr-glass-border: rgba(255, 255, 255, 0.25);
+  --pr-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+  --pr-shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.85);
+  --pr-ease: cubic-bezier(.22,.61,.36,1);
+  --pr-t: 700ms;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* =========================================
+   SECTION + FLOAT AURA BACKGROUND
+========================================= */
+.products-section {
+  width: 100%;
+  position: relative;
+  overflow: clip;
+}
+
+.products-container {
+  position: relative;
+  z-index: 1;
+}
+
+.products-section::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(60% 50% at 15% 25%, rgba(255,255,255,0.06), transparent 60%),
+    radial-gradient(70% 60% at 85% 75%, rgba(255,255,255,0.05), transparent 60%);
+  animation: prAura 18s ease-in-out infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes prAura {
+  0%   { transform: translate3d(-12px, 0, 0) scale(1.02); }
+  100% { transform: translate3d(12px, -6px, 0) scale(1.03); }
+}
+
+/* Section enter animation (whole section) */
+.pr-section-enter {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+}
+.pr-section-enter.pr-section-in {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  transition: opacity 800ms var(--pr-ease), transform 800ms var(--pr-ease);
+}
+
+/* =========================================
+   HEADINGS
+========================================= */
+.section-title {
+  letter-spacing: .2px;
+}
+
+/* =========================================
+   HORIZONTAL SCROLL WRAP (with gradient edges)
+========================================= */
+.products-scroll-wrap {
+  position: relative;
+}
+
+.edge-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 2;
+  pointer-events: none;
+}
+.edge-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6), transparent);
+}
+.edge-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
+}
+
+/* =========================================
+   HORIZONTAL SCROLL CONTAINER
+========================================= */
+.products-scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  padding: 6px 2px;
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+
+  scroll-snap-type: x proximity; /* optional: snap feel */
+}
+
+/* Scrollbar */
+.products-scroll-container::-webkit-scrollbar { height: 8px; }
+.products-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+}
+.products-scroll-container::-webkit-scrollbar-track { background: transparent; }
+
+.products-scroll-container {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255, 255, 255, 0.6) transparent;
+}
+
+/* =========================================
+   EACH CARD ITEM (mobile dimension across)
+========================================= */
+.product-scroll-item {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+}
+
+/* =========================================
+   FLOATING CARD ANIMATION (idle)
+========================================= */
+.card-float {
+  animation: floatCard 4s ease-in-out infinite;
+  will-change: transform;
+}
+.card-float-1 { animation-delay: .3s; }
+.card-float-2 { animation-delay: .6s; }
+
+@keyframes floatCard {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+/* =========================================
+   CARD DESIGN
+========================================= */
 .hr-category-card {
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-  background: #ffffff;
-  height: 100%;
+  background: var(--pr-glass-bg);
+  border: 1px solid var(--pr-glass-border);
+  box-shadow: var(--pr-shadow);
+  transition: transform .3s var(--pr-ease), box-shadow .3s var(--pr-ease);
+}
+.hr-category-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: var(--pr-shadow-hover);
 }
 
-/* VIDEO WRAPPER (fully responsive using aspect ratio) */
+/* Media box */
 .hr-category-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;   /* adjust: 16/9 for wide, 1/1 for square */
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
 
-/* Video fills the wrapper */
+/* Video */
 .hr-category-video {
   position: absolute;
-  inset: 0;       /* top:0; right:0; bottom:0; left:0 */
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform .5s var(--pr-ease);
+}
+.hr-category-card:hover .hr-category-video {
+  transform: scale(1.08);
 }
 
-/* Label on top of video */
+/* Label */
 .hr-category-label {
   position: absolute;
-  left: 0.75rem;
-  bottom: 0.75rem;
-  padding: 0.25rem 0.7rem;
-  font-size: 0.78rem;
-  background: rgba(0, 0, 0, 0.55);
-  color: #ffffff;
+  bottom: .75rem; left: .75rem;
+  padding: 4px 10px;
+  font-size: .8rem;
+  background: rgba(0,0,0,.55);
+  color: var(--pr-white);
   border-radius: 999px;
-  z-index: 5;
+  border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(6px);
 }
 
-/* Fallback if video is missing */
+/* Fallback (no video) */
 .hr-category-fallback {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-align: center;
-  padding: 0.5rem;
+  display: grid; place-items: center;
+  font-size: .86rem; font-weight: 600;
+  padding: .5rem; text-align: center;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .hr-category-media {
-    aspect-ratio: 3 / 4; /* taller videos for mobile */
-  }
+/* =========================================
+   REVEAL (side-wise / fade / up) + STAGGER
+========================================= */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity var(--pr-t) var(--pr-ease), transform var(--pr-t) var(--pr-ease);
+  will-change: opacity, transform;
 }
+
+.reveal[data-reveal="left"]  { transform: translate3d(-46px, 0, 0); }
+.reveal[data-reveal="right"] { transform: translate3d(46px, 0, 0); }
+.reveal[data-reveal="up"]    { transform: translate3d(0, 26px, 0); }
+.reveal[data-reveal="fade"]  { transform: translate3d(0, 16px, 0); }
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* Stagger helpers */
+.delay-1 { transition-delay: 120ms; }
+.delay-2 { transition-delay: 240ms; }
+.delay-3 { transition-delay: 360ms; }
+.delay-4 { transition-delay: 480ms; }

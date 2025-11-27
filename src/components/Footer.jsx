@@ -56,23 +56,23 @@ function Footer() {
           <div className="col-md-4 text-center text-md-start">
             <h6 className="fw-semibold mb-3">Contact</h6>
 
-            <p className="small mb-1">Phone: +91 85473 21372</p>
+            <p className="small mb-1">Phone: +91 8113001110</p>
 
             <p className="small mb-1">
               WhatsApp:{" "}
               <a
-                href="https://wa.me/918547321372?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20stone%20collection."
+                href="https://wa.me/918113001110?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20stone%20collection."
                 target="_blank"
                 rel="noreferrer"
                 className="hr-footer-link"
               >
-                +91 85473 21372
+                +91 8113001110
               </a>
             </p>
 
             <p className="small mt-2 ">
               Visit our showroom :<br />
-              HOMEROCKS, kuppam, Taliparamba, Marathakkad, Kerala 670502
+              HOMEROCKS, kuppam, Taliparamba, Kannur, Kerala 670502
             </p>
           </div>
 

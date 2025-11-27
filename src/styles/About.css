@@ -1,19 +1,75 @@
-/* Gallery wrapper */
+/* =========================================
+   BASE / VARIABLES
+========================================= */
+:root {
+  --ab-white: #ffffff;
+  --ab-glass-bg: rgba(0, 0, 0, 0.45);
+  --ab-border: rgba(255, 255, 255, 0.2);
+  --ab-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  --ab-ease: cubic-bezier(.22,.61,.36,1);
+  --ab-t: 720ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* =========================================
+   SECTION + FLOAT AURA
+========================================= */
+.about-root {
+  position: relative;
+  overflow: clip;
+}
+
+.about-root .container { position: relative; z-index: 1; }
+
+.ab-aura {
+  position: absolute;
+  inset: -24%;
+  background:
+    radial-gradient(64% 54% at 18% 18%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(70% 60% at 86% 80%, rgba(255,255,255,.05), transparent 60%);
+  animation: abAura 18s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes abAura {
+  0%   { transform: translate3d(-12px, 0, 0) scale(1.02); }
+  100% { transform: translate3d(12px, -6px, 0) scale(1.03); }
+}
+
+/* Whole-section enter */
+.ab-section-enter {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+}
+.ab-section-enter.ab-section-in {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  transition: opacity 800ms var(--ab-ease), transform 800ms var(--ab-ease);
+}
+
+/* =========================================
+   GALLERY GRID
+========================================= */
 .hr-about-gallery {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-/* Tile container */
+/* Tile */
 .hr-about-img {
   position: relative;
   border-radius: 0.9rem;
   overflow: hidden;
-  background: #f3f3f3;
-  aspect-ratio: 4 / 3;  /* responsive height */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #111; /* supports transparent images nicely */
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition: transform .3s var(--ab-ease), box-shadow .3s var(--ab-ease);
+  border: 1px solid var(--ab-border);
 }
 
 /* Wide tile for last image (desktop) */
@@ -21,7 +77,7 @@
   grid-column: 1 / -1;
 }
 
-/* Actual image inside tile */
+/* Actual image */
 .hr-about-photo {
   width: 100%;
   height: 100%;
@@ -29,7 +85,7 @@
   display: block;
 }
 
-/* Label overlay on image */
+/* Label overlay */
 .hr-about-label {
   position: absolute;
   left: 1rem;
@@ -37,28 +93,65 @@
   padding: 0.25rem 0.8rem;
   font-size: 0.8rem;
   background: rgba(0, 0, 0, 0.55);
-  color: #ffffff;
+  color: var(--ab-white);
   border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(6px);
 }
 
-/* Hover effect */
 .hr-about-img:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
 }
 
-/* Desktop layout: 2-column collage */
+/* Desktop layout */
 @media (min-width: 992px) {
   .hr-about-gallery {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .hr-about-img {
-    aspect-ratio: 5 / 4;
-  }
-
+  .hr-about-img { aspect-ratio: 5 / 4; }
   .hr-about-img-wide {
-    grid-column: 1 / 3; /* span both columns */
+    grid-column: 1 / 3;
     aspect-ratio: 16 / 7;
   }
 }
+
+/* =========================================
+   IDLE FLOAT FOR TILES (gentle)
+========================================= */
+@keyframes abFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.card-float { animation: abFloat 4.8s ease-in-out infinite; will-change: transform; }
+.card-float-1 { animation-delay: .35s; }
+.card-float-2 { animation-delay: .7s; }
+
+/* Pause float while hovering for snappy feel */
+.hr-about-img:hover { animation-play-state: paused; }
+
+/* =========================================
+   REVEAL (side-wise / up / fade) + STAGGER
+========================================= */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity var(--ab-t) var(--ab-ease), transform var(--ab-t) var(--ab-ease);
+  will-change: opacity, transform;
+}
+.reveal[data-reveal="left"]  { transform: translate3d(-48px, 0, 0); }
+.reveal[data-reveal="right"] { transform: translate3d(48px, 0, 0); }
+.reveal[data-reveal="up"]    { transform: translate3d(0, 26px, 0); }
+.reveal[data-reveal="fade"]  { transform: translate3d(0, 12px, 0); }
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* Stagger helpers */
+.delay-1 { transition-delay: 120ms; }
+.delay-2 { transition-delay: 240ms; }
+.delay-3 { transition-delay: 360ms; }
+.delay-4 { transition-delay: 480ms; }

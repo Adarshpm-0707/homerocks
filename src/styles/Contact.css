@@ -1,22 +1,21 @@
-/* Map image container */
-.hr-map-image {
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: 1rem;
+/* Glass-style contact form card */
+.contact-card {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Map image styling */
-.hr-map-photo {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.25s ease;
-  cursor: pointer;
+/* Make text inside readable on dark background */
+.contact-card .form-label,
+.contact-card h5 {
+  color: #ffffff;
 }
 
-/* Hover zoom effect */
-.hr-map-photo:hover {
-  transform: scale(1.03);
+.contact-card .form-control,
+.contact-card textarea {
+  background-color: rgba(159, 151, 151, 0.9);
 }
