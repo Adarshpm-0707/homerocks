@@ -1,0 +1,54 @@
+/* ================================
+   ROOT & LAYOUT
+================================ */
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* ================================
+   FULLSCREEN FIXED BACKGROUND LAYERS
+================================ */
+.app-bg-video,
+.app-bg-overlay,
+.app-bg-gradient {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ================================
+   HOME PAGE VIDEO BACKGROUND
+================================ */
+.app-bg-video {
+  z-index: 0;
+  object-fit: cover;
+  background: #000;
+}
+
+/* Optional dark overlay over the video */
+.app-bg-overlay {
+  z-index: 1;
+  background: rgba(0, 0, 0, var(--overlay, 0.36));
+}
+
+/* ================================
+   FULL BLACK BACKGROUND FOR ALL OTHER PAGES
+================================ */
+.app-bg-gradient {
+  z-index: 0;
+  background: #000000; /* FULL BLACK */
+}
+
+/* ================================
+   SAFETY RESET
+================================ */
+

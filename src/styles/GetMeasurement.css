@@ -1,3 +1,51 @@
-.gm-side-card {
-  background: #ffffff;
+/* GLASS CARD FOR FORM + RIGHT SIDE */
+.gm-card {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  border-radius: 1rem;
+  padding: 1.2rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* REMOVE WHITE BACKGROUND FROM GLOBAL hr-card */
+.hr-card {
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+/* Text color fix */
+.gm-card label,
+.gm-card p,
+.gm-card li,
+.gm-card h5 {
+  color: #ffffff;
+}
+
+/* Input styling to match glass UI */
+.gm-card .form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.gm-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Submit button styling */
+.gm-card button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 600;
 }

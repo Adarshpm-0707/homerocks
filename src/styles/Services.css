@@ -1,34 +1,161 @@
-/* Service Card */
+/* =========================================
+   BASE / VARIABLES
+========================================= */
+:root {
+  --sv-white: #ffffff;
+  --sv-glass-bg: rgba(0, 0, 0, 0.45);
+  --sv-glass-border: rgba(255, 255, 255, 0.15);
+  --sv-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+  --sv-shadow-hover: 0 10px 32px rgba(0, 0, 0, 0.5);
+  --sv-ease: cubic-bezier(.22,.61,.36,1);
+  --sv-t: 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* =========================================
+   SECTION SHELL + FLOATING AURA
+========================================= */
+.services-root {
+  position: relative;
+  overflow: clip; /* make sure background effects don’t overflow */
+}
+
+.sv-aura {
+  position: absolute;
+  inset: -22%;
+  background:
+    radial-gradient(60% 50% at 15% 20%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(65% 55% at 85% 80%, rgba(255,255,255,.05), transparent 60%);
+  animation: svAura 18s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes svAura {
+  0%   { transform: translate3d(-12px, 0, 0) scale(1.02); }
+  100% { transform: translate3d(12px, -6px, 0) scale(1.03); }
+}
+
+/* Whole-section enter */
+.sv-section-enter {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+}
+.sv-section-enter.sv-section-in {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  transition: opacity 800ms var(--sv-ease), transform 800ms var(--sv-ease);
+}
+
+/* Make content sit above aura */
+.services-root .container { position: relative; z-index: 1; }
+
+/* =========================================
+   GLASS SERVICE CARD
+========================================= */
 .hr-service-card {
-  background: #ffffff;
+  background: var(--sv-glass-bg);
+  backdrop-filter: blur(12px);
   border-radius: 1rem;
   padding: 1.2rem;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
-  height: 100%;            /* 🔥 makes all cards same height */
+  box-shadow: var(--sv-shadow);
+  height: 100%;
   display: flex;
+  border: 1px solid var(--sv-glass-border);
+  transition: transform .3s var(--sv-ease), box-shadow .3s var(--sv-ease), background .3s var(--sv-ease);
 }
 
-/* Icon */
+.hr-service-card:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-4px);
+  box-shadow: var(--sv-shadow-hover);
+}
+
+/* =========================================
+   IDLE FLOAT (gentle) + variants
+========================================= */
+@keyframes svFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.card-float { animation: svFloat 4.6s ease-in-out infinite; will-change: transform; }
+.card-float-1 { animation-delay: .35s; }
+.card-float-2 { animation-delay: .7s; }
+
+/* Pause idle float on hover for snappy feel */
+.hr-service-card:hover { animation-play-state: paused; }
+
+/* =========================================
+   ICON WRAPPER + ICONS
+========================================= */
 .hr-service-icon {
-  font-size: 2rem;
-  width: 45px;
+  width: 50px; height: 50px;
+  margin-right: 12px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.hr-service-icon svg {
+  width: 32px; height: 32px;
+  color: var(--sv-white);
 }
 
-/* Body inside card */
+/* =========================================
+   TEXT
+========================================= */
 .service-body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  color: var(--sv-white);
+}
+.service-body p {
+  color: #e4e4e4;
+  margin-bottom: .5rem;
 }
 
-/* Button stays at bottom */
-.service-body button {
-  margin-top: auto;
-}
-/* Ensures button is centered */
+/* Center button row */
 .service-btn-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
+/* =========================================
+   REVEAL (side-wise / up / fade) + STAGGER
+========================================= */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity var(--sv-t) var(--sv-ease), transform var(--sv-t) var(--sv-ease);
+  will-change: opacity, transform;
+}
+
+.reveal[data-reveal="left"]  { transform: translate3d(-46px, 0, 0); }
+.reveal[data-reveal="right"] { transform: translate3d(46px, 0, 0); }
+.reveal[data-reveal="up"]    { transform: translate3d(0, 26px, 0); }
+.reveal[data-reveal="fade"]  { transform: translate3d(0, 12px, 0); }
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* Stagger helpers */
+.delay-1 { transition-delay: 120ms; }
+.delay-2 { transition-delay: 240ms; }
+.delay-3 { transition-delay: 360ms; }
+.delay-4 { transition-delay: 480ms; }
+
+/* =========================================
+   ACCESSIBILITY FOCUS
+========================================= */
+.hr-service-card:focus-within,
+.hr-service-card:focus-visible,
+button.btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 12px;
+}
