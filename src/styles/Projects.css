@@ -1,0 +1,27 @@
+.hr-project-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.hr-project-image {
+  background: linear-gradient(120deg, #f1f1f1, #dcdcdc);
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.hr-filter-btn {
+  border-radius: 999px;
+  border-width: 1px;
+  border-color: #dddddd;
+}
+
+.hr-filter-btn-active {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-color: #0d6efd;
+}

@@ -1,0 +1,22 @@
+/* Map image container */
+.hr-map-image {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+/* Map image styling */
+.hr-map-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+
+/* Hover zoom effect */
+.hr-map-photo:hover {
+  transform: scale(1.03);
+}

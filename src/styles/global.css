@@ -1,0 +1,128 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #222222;
+}
+
+/* APP LAYOUT */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-root main {
+  flex: 1;
+}
+
+/* NAVBAR (shared) */
+
+.hr-navbar .navbar {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.hr-logo {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Shared section styles */
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* Shared card style */
+
+.hr-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+/* FOOTER */
+
+.hr-footer {
+  background: #111111;
+  color: #f9f9f9;
+}
+
+.hr-footer-link {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+.hr-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Basic responsive navbar dropdown styling */
+
+@media (max-width: 767.98px) {
+  .navbar .navbar-collapse {
+    background: #000000;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+  }
+}
+.nav-logo {
+  height: 45px;     /* adjust size */
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .nav-logo {
+    height: 35px;
+  }
+}
+/* APP LAYOUT (you already have this, keep it) */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* New: background video + overlay + content layering */
+
+.app-root {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fullscreen video */
+.app-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills screen without distortion */
+  z-index: -2;
+}
+
+/* Dark overlay over video */
+.app-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* adjust darkness here */
+  z-index: -1;
+}
+
+/* Foreground content (all pages) */
+.app-content {
+  position: relative;
+  z-index: 0;
+}

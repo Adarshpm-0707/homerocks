@@ -1,0 +1,43 @@
+/* Footer background and base styles */
+.hr-footer {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* General padding / spacing */
+/* (You already add mt-5 in JSX, so no margin-top here) */
+
+/* Footer links */
+.hr-footer-link {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+.hr-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer logo size + alignment */
+.hr-footer .footer-logo {
+  width: 250px;   /* change this value to control size */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Make list spacing cleaner */
+.footer-links-list li + li {
+  margin-top: 4px;
+}
+
+/* On mobile: center columns */
+@media (max-width: 767.98px) {
+  .hr-footer .col-md-4 {
+    text-align: center;
+  }
+
+  .hr-footer .footer-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
