@@ -49,12 +49,7 @@ function Contact() {
                 WhatsApp Chat
               </a>
 
-              <button
-                className="btn btn-outline-primary"
-                onClick={() => window.open(whatsappLink, "_blank")}
-              >
-                Book Shuttle Service
-              </button>
+             
             </div>
 
             {/* Clickable Map Image */}

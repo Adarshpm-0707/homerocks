@@ -1,3 +1,4 @@
+// src/pages/About.jsx
 import React, { useEffect, useRef } from "react";
 import "../styles/About.css";
 
@@ -5,138 +6,178 @@ import warehouseImg from "../assets/wharehouse.png";
 import processingImg from "../assets/factory.jpg";
 import installedProjectImg from "../assets/installed-project.jpg";
 
-function About() {
-  const sectionRef = useRef(null);
+export default function About() {
+  const rootRef = useRef(null);
 
   useEffect(() => {
-    // Whole-section enter
-    const sec = sectionRef.current;
-    if (sec) {
-      sec.classList.add("ab-section-enter");
-      requestAnimationFrame(() => sec.classList.add("ab-section-in"));
-    }
+    const el = rootRef.current;
+    if (!el) return;
 
-    // Scroll reveal (side-wise / up / fade)
-    const revealEls = document.querySelectorAll(".about-root .reveal");
+    // Page enter
+    el.classList.add("a-enter");
+    requestAnimationFrame(() => el.classList.add("a-in"));
+
+    // Sidewise reveal observer (matches .reveal-left/right/up)
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            io.unobserve(entry.target);
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.16 }
+      { threshold: 0.12 }
     );
-    revealEls.forEach((el) => io.observe(el));
+    document
+      .querySelectorAll(".reveal-left, .reveal-right, .reveal-up")
+      .forEach((node) => io.observe(node));
 
     return () => io.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-5 about-root">
-      <div className="container position-relative">
-        {/* floating aura */}
-        <div className="ab-aura" aria-hidden="true" />
+    <section ref={rootRef} className="about-clean">
+      {/* Background */}
+      <div className="about-bg" aria-hidden="true" />
 
-        <div className="row gy-4 align-items-start">
-          {/* LEFT COLUMN – TEXT */}
-          <div className="col-lg-7">
-            <h2
-              className="section-title text-white text-center text-lg-start fs-1 mb-3 reveal"
-              data-reveal="left"
-            >
-              About HOMEROCKS
-            </h2>
+      {/* Center all text content */}
+      <div className="container center-all">
+        {/* HERO */}
+        <header className="glass hero reveal-up">
+          <span className="kicker anim-float">Since 1995 • Aleef Heritage</span>
+          <h1 className="reveal-up delay-1">ABOUT HOMEROCKS</h1>
+          <p className="muted reveal-up delay-2">
+            Bringing the world’s finest stones closer to homeowners, architects, and builders —
+            with transparency, consistent quality, and complete service support.
+          </p>
+          <div className="actions reveal-up delay-3">
+            <a className="btn btn-primary anim-pulse" href="#story">Our Story</a>
+            <a className="btn btn-primary" href="#network">Sourcing Network</a>
+          </div>
+        </header>
 
-            <p className="mb-3 text-white reveal delay-1" data-reveal="left">
-              HOMEROCKS was started with a simple idea – bring the world’s best
-              stones closer to homeowners, architects, and builders with full
-              transparency and support.
+        {/* 3-COLUMN SUMMARY */}
+        <section className="grid grid-3" style={{ marginBottom: 12 }}>
+          <article className="glass block reveal-left">
+            <h3>Our Purpose</h3>
+            <p className="muted">
+              HOMEROCKS was created to bring the world’s finest stones closer to you — backed by
+              transparency, consistent quality, and complete service support.
             </p>
-
-            <p className="mb-3 text-white reveal delay-2" data-reveal="left">
-              From Italian marble to exotic onyx and high-performance quartz,
-              we carefully curate every lot, verify sourcing, and maintain
-              strict quality checks at our warehouse and processing units.
+          </article>
+          <article className="glass block reveal-up delay-1">
+            <h3>A Legacy Since 1995</h3>
+            <p className="muted">
+              Rooted in Aleef (est. 1995), we combine decades of trusted relationships with modern,
+              customer-first processes.
             </p>
+          </article>
+          <article className="glass block reveal-right delay-2">
+            <h3>Our Vision</h3>
+            <p className="muted">
+              Deliver the best quality at the best price so every project can access dependable,
+              beautiful stone solutions without compromise.
+            </p>
+          </article>
+        </section>
 
-            <h5 className="fw-semibold text-white mt-4 mb-2 reveal" data-reveal="left">
-              Why customers trust us
-            </h5>
-            <ul className="small text-white mb-4 reveal delay-1" data-reveal="left">
-              <li>Direct sourcing from quarries and trusted partners.</li>
-              <li>Transparent pricing with best price guarantee.</li>
-              <li>
-                End-to-end support – from selection and measurement to
-                installation and polishing.
+        {/* FULL STORY */}
+        <section id="story" className="glass block reveal-up" style={{ marginBottom: 12 }}>
+          <h2>Our Story</h2>
+          <p className="muted">
+                  HOMEROCKS stands on the strong foundation of Aleef, established in 1995. Over three
+            decades, Aleef has grown into a trusted name known for honesty, quality, and customer
+            loyalty. This heritage continues through HOMEROCKS — combining long-standing industry
+            relationships with modern processes and customer-focused service.
+            From Italian marble and exotic onyx to premium Indian marble, travertine, quartzite, and
+            high-performance quartz — every material is handpicked. We verify sourcing, inspect every
+            block and slab, and maintain strict quality checks across our warehouse, factory, and
+            dispatch operations.
+          </p>
+        </section>
+
+        {/* QC + TRUST */}
+        <section className="grid grid-2" style={{ marginBottom: 12 }}>
+          <article className="glass reveal-left">
+            <h3>Our 3-Stage Quality Check</h3>
+            <ol className="steps">
+              <li className="reveal-up delay-1">
+                <strong>Block &amp; Slab Inspection at Source</strong>
+                <span className="muted">
+                  Selection at quarries/stockyards to ensure authenticity, grade, and pattern consistency.
+                </span>
               </li>
-              <li>Commitment to timelines, accuracy, and after-sales support.</li>
-            </ul>
-
-            <h5 className="fw-semibold text-white mb-2 reveal" data-reveal="left">
-              Our Quality Check (QC) in 3 steps
-            </h5>
-            <ol className="small text-white mb-4 reveal delay-1" data-reveal="left">
-              <li>Block & slab inspection at source.</li>
-              <li>Processing & finishing check at factory.</li>
-              <li>Final inspection before dispatch to site.</li>
+              <li className="reveal-up delay-2">
+                <strong>Processing &amp; Finishing Check</strong>
+                <span className="muted">
+                  Supervised processing verifying thickness, polish quality, surface finish, and strength.
+                </span>
+              </li>
+              <li className="reveal-up delay-3">
+                <strong>Final Inspection Before Dispatch</strong>
+                <span className="muted">
+                  Checks for color consistency, polish accuracy, edge finishing, and safe transport.
+                </span>
+              </li>
             </ol>
+          </article>
 
-            <h5 className="fw-semibold text-white mb-2 reveal" data-reveal="left">
-              Our Sourcing Network
-            </h5>
-            <p className="small text-white mb-0 reveal delay-1" data-reveal="left">
-              Italy, Turkey, Iran, India and other premium stone regions – so
-              that your home gets only the finest materials.
-            </p>
+          <article className="glass block reveal-right">
+            <h3>Why Customers Trust Us</h3>
+            <ul className="checks">
+              <li className="anim-jump delay-1">Direct sourcing from quarries &amp; trusted partners</li>
+              <li className="anim-jump delay-2">Transparent pricing with best-price guarantee</li>
+              <li className="anim-jump delay-3">End-to-end support: selection to installation</li>
+              <li className="anim-jump delay-4">Reliable timelines &amp; project handling</li>
+              <li className="anim-jump delay-5">Dedicated after-sales support</li>
+            </ul>
+          </article>
+        </section>
+
+        {/* SOURCING NETWORK */}
+        <section id="network" className="glass block reveal-up" style={{ marginBottom: 12 }}>
+          <h2>Our Sourcing Network</h2>
+          <p className="muted">Our network includes:</p>
+          <div className="tags">
+            {[
+              "Italian quarries (premium marble)",
+              "Turkey & Iran (onyx, travertine)",
+              "Spain & Portugal (specialty stones)",
+              "India (granite, Indian marble, quartzite)",
+              "Trusted global factories (engineered quartz)",
+            ].map((t, i) => (
+              <span className={`tag ${i % 2 === 0 ? "anim-float" : ""}`} key={t}>
+                {t}
+              </span>
+            ))}
           </div>
+        </section>
 
-          {/* RIGHT COLUMN – IMAGE GALLERY */}
-          <div className="col-lg-5">
-            <div className="hr-about-gallery">
-              <div
-                className="hr-about-img card-float card-float-0 reveal"
-                data-reveal="right"
-              >
-                <img
-                  src={warehouseImg}
-                  alt="HOMEROCKS Warehouse"
-                  className="hr-about-photo"
-                />
-                <span className="hr-about-label">Warehouse</span>
-              </div>
+        {/* GALLERY */}
+        <section className="grid grid-3">
+          {[
+            {src: warehouseImg, alt: "Warehouse", cls:"reveal-left"},
+            {src: processingImg, alt: "Processing / Factory", cls:"reveal-up delay-1"},
+            {src: installedProjectImg, alt: "Installed Project", cls:"reveal-right delay-2"},
+          ].map((it) => (
+            <figure className={`glass image-card card ${it.cls}`} key={it.alt}>
+              <img src={it.src} alt={it.alt} />
+              <figcaption>{it.alt}</figcaption>
+            </figure>
+          ))}
+        </section>
 
-              <div
-                className="hr-about-img card-float card-float-1 reveal delay-1"
-                data-reveal="right"
-              >
-                <img
-                  src={processingImg}
-                  alt="Processing / Factory"
-                  className="hr-about-photo"
-                />
-                <span className="hr-about-label">Processing / Factory</span>
-              </div>
-
-              <div
-                className="hr-about-img hr-about-img-wide card-float card-float-2 reveal delay-2"
-                data-reveal="right"
-              >
-                <img
-                  src={installedProjectImg}
-                  alt="Installed Project"
-                  className="hr-about-photo"
-                />
-                <span className="hr-about-label">Installed Project</span>
-              </div>
-            </div>
+        {/* CTA */}
+        <section className="glass hero reveal-up" style={{ marginTop: 16 }}>
+          <h3>Ready to spec HOMEROCKS for your next project?</h3>
+          <p className="muted">Talk to us for curated selections, pricing, and site support.</p>
+          <div className="actions">
+            <a href="/products" className="btn btn-primary anim-pulse">View Collections</a>
+            <a href="/contact" className="btn btn-primary">Contact Us</a>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );
 }
-
-export default About;
