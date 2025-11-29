@@ -12,10 +12,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+  * { animation: none !important; transition: none !important; }
 }
 
 /* ========================================
@@ -54,15 +51,58 @@
   opacity: 0.9;
 }
 
-/* CTA Buttons */
+/* ========================================
+   CTA BUTTONS — shared
+======================================== */
+.hr-cta {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
 .hr-cta .btn {
+  min-width: 220px;
   transition: transform .25s var(--hr-ease);
 }
 .hr-cta .btn:hover {
   transform: translateY(-2px);
 }
 
-/* Images */
+/* ----- Desktop CTA centering (≥992px) ----- */
+@media (min-width: 992px) {
+  /* Make the Bootstrap .row act like an inline, centered button group */
+  .hr-cta {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+
+  /* Prevent Bootstrap grid columns from stretching */
+  .hr-cta > [class*="col-"] {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* ----- Mobile CTA behaviour (≤576px) — unchanged ----- */
+@media (max-width: 576px) {
+  /* Keep stacked full-width buttons on phones */
+  .hr-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .hr-cta .btn {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}
+
+/* ========================================
+   IMAGES
+======================================== */
 .hr-hero-image-box {
   display: flex;
   flex-direction: column;
@@ -99,7 +139,7 @@
   font-size: .82rem;
 }
 
-/* Mobile */
+/* Mobile image sizing (unchanged) */
 @media (max-width: 768px) {
   .hr-hero-title { font-size: 1.9rem; }
   .hr-hero-image { height: 180px; }
@@ -136,11 +176,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  filter: brightness(0) invert(1); /* white */
+  filter: brightness(0) invert(1);
   transition: filter .25s var(--hr-ease), transform .25s var(--hr-ease);
 }
 .hr-highlight-card:hover .hr-highlight-icon {
-  filter: brightness(0); /* black */
+  filter: brightness(0);
   transform: translateY(-2px);
 }
 
@@ -163,18 +203,12 @@
   100% { transform: translateY(0); }
 }
 
-.jump-loop {
-  animation: hrJump 3.2s ease-in-out infinite;
-}
-
+.jump-loop { animation: hrJump 3.2s ease-in-out infinite; }
 .jump-delay-1 { animation-delay: 0.4s; }
 .jump-delay-2 { animation-delay: 0.8s; }
 .jump-delay-3 { animation-delay: 1.2s; }
 
-/* Pause the idle loop while hovering */
-.hr-highlight-card:hover {
-  animation-play-state: paused;
-}
+.hr-highlight-card:hover { animation-play-state: paused; }
 
 /* ========================================
    REVEAL SCROLL ANIMATION

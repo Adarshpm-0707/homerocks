@@ -1,5 +1,28 @@
 /* ================================
-   ROOT & LAYOUT
+   GLOBAL THEME
+================================ */
+:root {
+  --bg-start: #0a0f1a;
+  --bg-end:   #171c2b;
+  --overlay: 0.36; /* darkness over the home video */
+
+  --ink:    #eaf0ff;
+  --ink-70: rgba(234,240,255,.7);
+  --ink-50: rgba(234,240,255,.5);
+}
+
+/* Reset + base */
+html, body, #root {
+  height: 100%;
+}
+html, body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--ink);
+}
+
+/* ================================
+   APP FRAME
 ================================ */
 .app-root {
   position: relative;
@@ -7,13 +30,14 @@
   overflow-x: hidden;
 }
 
+/* The content sits above any background layers */
 .app-content {
   position: relative;
   z-index: 3;
 }
 
 /* ================================
-   FULLSCREEN FIXED BACKGROUND LAYERS
+   FIXED BACKGROUND LAYERS
 ================================ */
 .app-bg-video,
 .app-bg-overlay,
@@ -22,33 +46,31 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: none; /* don’t block clicks */
 }
 
-/* ================================
-   HOME PAGE VIDEO BACKGROUND
-================================ */
+/* ---------- HOME: video layer + overlay ---------- */
 .app-bg-video {
   z-index: 0;
   object-fit: cover;
-  background: #000;
+  background: #000; /* fallback if video fails */
 }
 
-/* Optional dark overlay over the video */
 .app-bg-overlay {
   z-index: 1;
-  background: rgba(0, 0, 0, var(--overlay, 0.36));
+  background: rgba(0, 0, 0, var(--overlay));
 }
 
-/* ================================
-   FULL BLACK BACKGROUND FOR ALL OTHER PAGES
-================================ */
+/* ---------- NON-HOME: gradient layer ---------- */
 .app-bg-gradient {
   z-index: 0;
-  background: #000000; /* FULL BLACK */
+  background:
+    radial-gradient(1200px 800px at 10% -10%, #0e1630 0%, transparent 60%),
+    radial-gradient(1000px 600px at 90% -10%, #10283f 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  background-attachment: fixed;
 }
 
-/* ================================
-   SAFETY RESET
-================================ */
-
+/* Optional: smooth page enter */
+.fade-enter { opacity: 0; transform: translateY(10px); }
+.fade-show  { opacity: 1; transform: none; transition: .6s ease; }

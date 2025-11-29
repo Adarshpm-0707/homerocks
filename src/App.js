@@ -26,9 +26,6 @@ import homeVideo from "./assets/videos/background.mp4";
 
 import "./styles/AppBackground.css";
 
-const WHATSAPP_NUMBER = "918113001110"; // your number
-const EMAIL_ADDRESS = "info@yourdomain.com"; // 🔁 change to your real email
-
 function BackgroundLayer() {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
@@ -54,18 +51,6 @@ function BackgroundLayer() {
 }
 
 function App() {
-  // default WhatsApp text
-  const whatsappText = encodeURIComponent(
-    "Hello, I would like to know more about your stone collections."
-  );
-  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
-
-  const mailtoLink = `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(
-    "Stone Enquiry"
-  )}&body=${encodeURIComponent(
-    "Hello, I would like to know more about your products."
-  )}`;
-
   return (
     <div className="app-root">
       {/* Background (video on home, gradient on others) */}
@@ -99,30 +84,6 @@ function App() {
         </main>
 
         <Footer />
-
-        {/* ✅ Floating WhatsApp + Email buttons */}
-        <div className="floating-contact-buttons">
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="floating-btn floating-btn-whatsapp"
-            aria-label="Chat on WhatsApp"
-          >
-            {/* Simple WhatsApp icon (you can replace with SVG/image if you like) */}
-            <span>🟢</span>
-            <span className="floating-btn-text">WhatsApp</span>
-          </a>
-
-          <a
-            href={mailtoLink}
-            className="floating-btn floating-btn-email"
-            aria-label="Send email"
-          >
-            <span>✉️</span>
-            <span className="floating-btn-text">Email</span>
-          </a>
-        </div>
       </div>
     </div>
   );
