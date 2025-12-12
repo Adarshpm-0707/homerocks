@@ -78,31 +78,87 @@ function Home() {
                     <h1 className="hr-hero-title reveal" data-reveal="left">
                       Premium Stones <br /> for Luxury Interiors
                     </h1>
-                    <p className="hr-hero-subtitle reveal delay-1" data-reveal="left">
-                      HOMEROCKS brings world-class imported marbles for luxury homes
-                      and commercial spaces. Proud member of the Aleef Group.
+                    <p
+                      className="hr-hero-subtitle reveal delay-1"
+                      data-reveal="left"
+                    >
+                      HOMEROCKS brings world-class imported marbles for luxury
+                      homes and commercial spaces. Proud member of the Aleef
+                      Group.
                     </p>
+                    <section className="py-4">
+                      <div className="container">
+                        <div
+                          className="row g-2 g-sm-3 justify-content-center hr-cta reveal"
+                          data-reveal="up"
+                        >
+                          <div className="col-12 col-sm-auto d-grid">
+                            <Link
+                              to="/products"
+                              className="btn btn-outline-light btn-lg"
+                            >
+                              View Collections
+                            </Link>
+                          </div>
+
+                          <div className="col-12 col-sm-auto d-grid">
+                            <Link
+                              to="/get-measurement"
+                              className="btn btn-outline-light btn-lg"
+                            >
+                              Get Measurement
+                            </Link>
+                          </div>
+
+                          <div className="col-12 col-sm-auto d-grid">
+                            <a
+                              href={whatsappLink}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="btn btn-outline-light btn-lg"
+                              aria-label="Chat on WhatsApp"
+                            >
+                              WhatsApp Chat
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
                   </div>
 
                   <div className="col-lg-6 text-lg-end">
                     <div className="hr-hero-image-box">
-                      <div className="hr-hero-image-wrapper reveal" data-reveal="right">
-                        <img
-                          src={italianMarbleImg}
-                          alt="Polished slab of Italian marble"
-                          className="hr-hero-image"
-                        />
-                        <span className="hr-hero-image-label">Italian Marble</span>
-                      </div>
+                      <Link to="/products" className="hero-image-link">
+                        <div
+                          className="hr-hero-image-wrapper reveal"
+                          data-reveal="right"
+                        >
+                          <img
+                            src={italianMarbleImg}
+                            alt="Polished slab of Italian marble"
+                            className="hr-hero-image"
+                          />
+                          <span className="hr-hero-image-label">
+                            Italian Marble
+                          </span>
+                        </div>
+                      </Link>
 
-                      <div className="hr-hero-image-wrapper reveal delay-1" data-reveal="right">
-                        <img
-                          src={onyxQuartziteImg}
-                          alt="Onyx and quartzite stone sample"
-                          className="hr-hero-image"
-                        />
-                        <span className="hr-hero-image-label">Onyx | Quartzite</span>
-                      </div>
+                      <Link to="/products" className="hero-image-link">
+                        <div
+                          className="hr-hero-image-wrapper reveal delay-1"
+                          data-reveal="right"
+                        >
+                          <img
+                            src={onyxQuartziteImg}
+                            alt="Onyx and quartzite stone sample"
+                            className="hr-hero-image"
+                          />
+                          <span className="hr-hero-image-label">
+                            Onyx | Quartzite
+                          </span>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -119,30 +175,86 @@ function Home() {
                     <h1 className="hr-hero-title reveal" data-reveal="left">
                       Handpicked Italian Collections
                     </h1>
-                    <p className="hr-hero-subtitle reveal delay-1" data-reveal="left">
-                      Elevate lobbies, countertops, and feature walls with timeless beauty.
+                    <p
+                      className="hr-hero-subtitle reveal delay-1"
+                      data-reveal="left"
+                    >
+                      Elevate lobbies, countertops, and feature walls with
+                      timeless beauty.
                     </p>
+                    <section className="py-4">
+                      <div className="container">
+                        <div
+                          className="row g-2 g-sm-3 justify-content-center hr-cta reveal"
+                          data-reveal="up"
+                        >
+                          <div className="col-12 col-sm-auto d-grid">
+                            <Link
+                              to="/products"
+                              className="btn btn-outline-light btn-lg"
+                            >
+                              View Collections
+                            </Link>
+                          </div>
+
+                          <div className="col-12 col-sm-auto d-grid">
+                            <Link
+                              to="/get-measurement"
+                              className="btn btn-outline-light btn-lg"
+                            >
+                              Get Measurement
+                            </Link>
+                          </div>
+
+                          <div className="col-12 col-sm-auto d-grid">
+                            <a
+                              href={whatsappLink}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="btn btn-outline-light btn-lg"
+                              aria-label="Chat on WhatsApp"
+                            >
+                              WhatsApp Chat
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
                   </div>
 
                   <div className="col-lg-6 text-lg-end">
                     <div className="hr-hero-image-box">
-                      <div className="hr-hero-image-wrapper reveal" data-reveal="right">
-                        <img
-                          src={carraraImg}
-                          alt="Carrara marble selection close-up"
-                          className="hr-hero-image"
-                        />
-                        <span className="hr-hero-image-label">Carrara Selection</span>
-                      </div>
+                      <Link to="/products" className="hero-image-link">
+                        <div
+                          className="hr-hero-image-wrapper reveal"
+                          data-reveal="right"
+                        >
+                          <img
+                            src={carraraImg}
+                            alt="Carrara marble selection close-up"
+                            className="hr-hero-image"
+                          />
+                          <span className="hr-hero-image-label">
+                            Carrara Selection
+                          </span>
+                        </div>
+                      </Link>
 
-                      <div className="hr-hero-image-wrapper reveal delay-1" data-reveal="right">
-                        <img
-                          src={calacattaImg}
-                          alt="Calacatta Gold marble sample"
-                          className="hr-hero-image"
-                        />
-                        <span className="hr-hero-image-label">Calacatta Gold</span>
-                      </div>
+                      <Link to="/products" className="hero-image-link">
+                        <div
+                          className="hr-hero-image-wrapper reveal delay-1"
+                          data-reveal="right"
+                        >
+                          <img
+                            src={calacattaImg}
+                            alt="Calacatta Gold marble sample"
+                            className="hr-hero-image"
+                          />
+                          <span className="hr-hero-image-label">
+                            Calacatta Gold
+                          </span>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -159,30 +271,85 @@ function Home() {
                     <h1 className="hr-hero-title reveal" data-reveal="left">
                       Onyx & Exotic Stones
                     </h1>
-                    <p className="hr-hero-subtitle reveal delay-1" data-reveal="left">
+                    <p
+                      className="hr-hero-subtitle reveal delay-1"
+                      data-reveal="left"
+                    >
                       Rare quartzites and premium backlit onyx collections.
                     </p>
+                    <section className="py-4">
+                      <div className="container">
+                        <div
+                          className="row g-2 g-sm-3 justify-content-center hr-cta reveal"
+                          data-reveal="up"
+                        >
+                          <div className="col-12 col-sm-auto d-grid">
+                            <Link
+                              to="/products"
+                              className="btn btn-outline-light btn-lg"
+                            >
+                              View Collections
+                            </Link>
+                          </div>
+
+                          <div className="col-12 col-sm-auto d-grid">
+                            <Link
+                              to="/get-measurement"
+                              className="btn btn-outline-light btn-lg"
+                            >
+                              Get Measurement
+                            </Link>
+                          </div>
+
+                          <div className="col-12 col-sm-auto d-grid">
+                            <a
+                              href={whatsappLink}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="btn btn-outline-light btn-lg"
+                              aria-label="Chat on WhatsApp"
+                            >
+                              WhatsApp Chat
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
                   </div>
 
                   <div className="col-lg-6 text-lg-end">
                     <div className="hr-hero-image-box">
-                      <div className="hr-hero-image-wrapper reveal" data-reveal="right">
-                        <img
-                          src={onyxQuartziteImg}
-                          alt="Backlit onyx panel glowing"
-                          className="hr-hero-image"
-                        />
-                        <span className="hr-hero-image-label">Backlit Onyx</span>
-                      </div>
+                      <Link to="/products" className="hero-image-link">
+                        <div
+                          className="hr-hero-image-wrapper reveal"
+                          data-reveal="right"
+                        >
+                          <img
+                            src={onyxQuartziteImg}
+                            alt="Backlit onyx panel glowing"
+                            className="hr-hero-image"
+                          />
+                          <span className="hr-hero-image-label">
+                            Backlit Onyx
+                          </span>
+                        </div>
+                      </Link>
 
-                      <div className="hr-hero-image-wrapper reveal delay-1" data-reveal="right">
-                        <img
-                          src={exoticStoneImg}
-                          alt="Nero Marquina exotic marble slab"
-                          className="hr-hero-image"
-                        />
-                        <span className="hr-hero-image-label">Exotic Quartzite</span>
-                      </div>
+                      <Link to="/products" className="hero-image-link">
+                        <div
+                          className="hr-hero-image-wrapper reveal delay-1"
+                          data-reveal="right"
+                        >
+                          <img
+                            src={exoticStoneImg}
+                            alt="Nero Marquina exotic marble slab"
+                            className="hr-hero-image"
+                          />
+                          <span className="hr-hero-image-label">
+                            Exotic Quartzite
+                          </span>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -191,40 +358,6 @@ function Home() {
           </div>
         </div>
       </div>
-
-      {/* CTA BUTTONS (responsive) */}
-      <section className="py-4">
-        <div className="container">
-          <div
-            className="row g-2 g-sm-3 justify-content-center hr-cta reveal"
-            data-reveal="up"
-          >
-            <div className="col-12 col-sm-auto d-grid">
-              <Link to="/products" className="btn btn-outline-light btn-lg">
-                View Collections
-              </Link>
-            </div>
-
-            <div className="col-12 col-sm-auto d-grid">
-              <Link to="/get-measurement" className="btn btn-outline-light btn-lg">
-                Get Measurement
-              </Link>
-            </div>
-
-            <div className="col-12 col-sm-auto d-grid">
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-outline-light btn-lg"
-                aria-label="Chat on WhatsApp"
-              >
-                WhatsApp Chat
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* HIGHLIGHTS */}
       <section className="py-5">

@@ -52,8 +52,8 @@ export default function About() {
             with transparency, consistent quality, and complete service support.
           </p>
           <div className="actions reveal-up delay-3">
-            <a className="btn btn-primary anim-pulse" href="#story">Our Story</a>
-            <a className="btn btn-primary" href="#network">Sourcing Network</a>
+            <a className="btn btn-danger anim-pulse" href="#story">Our Story</a>
+            <a className="btn btn-danger" href="#network">Sourcing Network</a>
           </div>
         </header>
 
@@ -173,8 +173,8 @@ export default function About() {
           <h3>Ready to spec HOMEROCKS for your next project?</h3>
           <p className="muted">Talk to us for curated selections, pricing, and site support.</p>
           <div className="actions">
-            <a href="/products" className="btn btn-primary anim-pulse">View Collections</a>
-            <a href="/contact" className="btn btn-primary">Contact Us</a>
+            <a href="/products" className="btn btn-danger anim-pulse">View Collections</a>
+            <a href="/contact" className="btn btn-danger">Contact Us</a>
           </div>
         </section>
       </div>
