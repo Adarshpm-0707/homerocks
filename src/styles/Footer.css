@@ -4,9 +4,6 @@
   color: #ffffff;
 }
 
-/* General padding / spacing */
-/* (You already add mt-5 in JSX, so no margin-top here) */
-
 /* Footer links */
 .hr-footer-link {
   color: #e0e0e0;
@@ -19,7 +16,7 @@
 
 /* Footer logo size + alignment */
 .hr-footer .footer-logo {
-  width: 250px;   /* change this value to control size */
+  width: 250px;
   height: auto;
   object-fit: contain;
   display: block;

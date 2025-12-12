@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../styles/GetMeasurement.css";
 
+// 🔴 Paste the Web App URL you copied from Apps Script deployment here:
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfwVhO6qHZanzKxCEfsLUBo5aNluz4iGAgsaOLc983uT_1Wbo59K0y6hbwwOo2om96/exec";
+
 function GetMeasurement() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,15 +15,71 @@ function GetMeasurement() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // Using form-encoded POST (URLSearchParams) to avoid CORS preflight issues in many setups
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitted(false);
+    setError("");
+    setLoading(true);
+
+    try {
+      const params = new URLSearchParams();
+      params.append("name", formData.name || "");
+      params.append("location", formData.location || "");
+      params.append("areaDetails", formData.areaDetails || "");
+      params.append("materialPreference", formData.materialPreference || "");
+      params.append("timeSlot", formData.timeSlot || "");
+      params.append("whatsapp", formData.whatsapp || "");
+
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: params.toString(),
+      });
+
+      const text = await res.text();
+      console.log("Apps Script response:", res.status, text);
+
+      if (!res.ok) {
+        throw new Error(`Submit failed: ${res.status} — ${text}`);
+      }
+
+      // Try parse JSON result (best-effort)
+      try {
+        const json = JSON.parse(text || "{}");
+        if (json.status && json.status !== "success") {
+          throw new Error(json.message || "Apps Script returned an error");
+        }
+      } catch (parseErr) {
+        // ignore parse errors when empty body
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        location: "",
+        areaDetails: "",
+        materialPreference: "",
+        timeSlot: "",
+        whatsapp: "",
+      });
+    } catch (err) {
+      console.error("Submit error:", err);
+      // show a short friendly message to the user but log details to console
+      setError(String(err));
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -111,11 +170,10 @@ function GetMeasurement() {
                   className="form-control gm-input"
                   required
                 />
-                
               </div>
 
-              <button type="submit" className="btn btn-primary">
-                Confirm Measurement
+              <button type="submit" className="btn btn-primary" disabled={loading}>
+                {loading ? "Submitting..." : "Confirm Measurement"}
               </button>
             </form>
 
@@ -123,6 +181,12 @@ function GetMeasurement() {
               <div className="alert alert-success mt-3">
                 Thank you! Your measurement request has been received. You will
                 get a WhatsApp auto-confirmation shortly.
+              </div>
+            )}
+
+            {error && (
+              <div className="alert alert-danger mt-3">
+                {error}
               </div>
             )}
           </div>

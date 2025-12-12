@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png"; // make sure file name + path are correct
+import logo from "../assets/logo.png";
 import "../styles/Footer.css";
 
 function Footer() {
@@ -10,7 +10,8 @@ function Footer() {
         <div className="row gy-4">
 
           {/* Column 1 – Logo + About */}
-          <div className="col-md-4 text-center text-md-start">
+          {/* On mobile: order-3 (bottom) / On md+ : order-md-1 (first) */}
+          <div className="col-md-4 text-center text-md-start order-3 order-md-1">
             <img
               src={logo}
               alt="HOMEROCKS Logo"
@@ -26,7 +27,8 @@ function Footer() {
           </div>
 
           {/* Column 2 – Links */}
-          <div className="col-md-4 text-center text-md-start">
+          {/* On mobile: order-1 (top) / On md+ : order-md-2 (middle) */}
+          <div className="col-md-4 text-center text-md-start order-1 order-md-2">
             <h6 className="fw-semibold mb-3">Quick Links</h6>
             <ul className="list-unstyled small footer-links-list">
               <li>
@@ -53,7 +55,8 @@ function Footer() {
           </div>
 
           {/* Column 3 – Contact */}
-          <div className="col-md-4 text-center text-md-start">
+          {/* On mobile: order-2 / On md+ : order-md-3 (right) */}
+          <div className="col-md-4 text-center text-md-start order-2 order-md-3">
             <h6 className="fw-semibold mb-3">Contact</h6>
 
             <p className="small mb-1">Phone: +91 8113001110</p>
@@ -70,7 +73,7 @@ function Footer() {
               </a>
             </p>
 
-            <p className="small mt-2 ">
+            <p className="small mt-2">
               Visit our showroom :<br />
               HOMEROCKS, kuppam, Taliparamba, Kannur, Kerala 670502
             </p>
