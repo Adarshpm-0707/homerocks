@@ -4,7 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-
+import { app } from "./firebase";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Services from "./pages/Services";
