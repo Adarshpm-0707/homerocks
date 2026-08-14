@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+/* ── Design tokens adjusted for Dark Theme ── */
+:root {
+  --lx-maroon:  #B8892B; /* Gold for dark highlights */
+  --lx-gold:    #D4A94A;
+  --lx-cream:   transparent;
+  --lx-dark:    rgba(255,255,255,0.05);
+  --lx-mid:     rgba(234,240,255,0.6);
+  --lx-text:    #eaf0ff;
+  --lx-border:  rgba(234,240,255,0.15);
+}
+
+/* ── Wrapper — sits inside app-content, follows app background ── */
+.lx-wrap {
+  font-family: 'Jost', sans-serif;
+  color: var(--lx-text);
+  font-weight: 300;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 110px 48px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Restored transparency to let app gradient show through */
+.lx-wrap::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: -1;
+}
+
+/* ── Back link ── */
+.lx-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lx-gold);
+  text-decoration: none;
+  margin-bottom: 48px;
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  transition: color 0.2s;
+}
+.lx-back:hover { color: #fff; }
+
+/* ── Meta line ── */
+.lx-meta {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lx-gold);
+  margin-bottom: 18px;
+}
+
+/* ── Title ── */
+.lx-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4.5vw, 50px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 28px;
+}
+.lx-title em { font-style: italic; color: var(--lx-maroon); }
+
+/* ── Pull-quote intro ── */
+.lx-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2.5vw, 19px);
+  line-height: 1.85;
+  color: rgba(234,240,255,0.7);
+  border-left: 3px solid var(--lx-gold);
+  padding-left: 24px;
+  margin-bottom: 48px;
+  font-style: italic;
+}
+
+/* ── Section headings ── */
+.lx-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3vw, 27px);
+  font-weight: 400;
+  color: var(--lx-maroon);
+  margin: 48px 0 16px;
+  line-height: 1.2;
+}
+
+/* ── Body text ── */
+.lx-body {
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: rgba(234,240,255,0.8);
+  margin-bottom: 22px;
+}
+
+/* ── List ── */
+.lx-list {
+  margin: 0 0 28px 0;
+  padding-left: 0;
+  list-style: none;
+}
+.lx-list li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(234,240,255,0.8);
+  padding: 10px 0 10px 26px;
+  border-bottom: 1px solid var(--lx-border);
+  position: relative;
+}
+.lx-list li:first-child { border-top: 1px solid var(--lx-border); }
+.lx-list li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--lx-gold);
+  font-size: 8px;
+  top: 14px;
+}
+.lx-list li strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ── Tip box ── */
+.lx-tip {
+  background: rgba(184, 137, 43, 0.08);
+  border: 1px solid rgba(184,137,43,0.2);
+  border-left: 4px solid var(--lx-gold);
+  padding: 22px 26px;
+  margin: 32px 0;
+}
+.lx-tip-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--lx-gold);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.lx-tip p {
+  font-size: 14.5px;
+  margin: 0;
+  font-style: italic;
+  color: rgba(234,240,255,0.7);
+  line-height: 1.75;
+}
+
+/* ── CTA block ── */
+.lx-cta {
+  margin-top: 60px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--lx-border);
+  padding: 40px;
+  text-align: center;
+}
+.lx-cta-body {
+  color: rgba(234,240,255,0.5);
+  margin-bottom: 22px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.lx-cta-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--lx-maroon);
+  color: #000;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.lx-cta-btn:hover { background: var(--lx-gold); transform: scale(1.02); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .lx-wrap { padding: 86px 22px 72px; }
+  .lx-cta  { padding: 30px 20px; }
+}

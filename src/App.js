@@ -4,13 +4,16 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import { app } from "./firebase";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import GetMeasurement from "./pages/GetMeasurement";
+import Blog from "./pages/Blog";
+import BlogProduct from "./pages/BlogProduct";
+import Showcase from "./pages/Showcase";
+
 
 // Stone detail pages
 import ItalianMarble from "./productitemspage/ItalianMarble";
@@ -41,7 +44,10 @@ function BackgroundLayer() {
           muted
           playsInline
           preload="none"
-        />
+          title="Homerocks background video"
+        >
+          <track kind="captions" srcLang="en" label="English" />
+        </video>
         <div className="app-bg-overlay" style={{ "--overlay": "0.36" }} />
       </>
     );
@@ -70,6 +76,10 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/get-measurement" element={<GetMeasurement />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogProduct />} />
+            <Route path="/showcase" element={<Showcase />} />
+
 
             {/* Stone detail pages */}
             <Route path="/italian-marbles" element={<ItalianMarble />} />

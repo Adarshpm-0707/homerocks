@@ -63,13 +63,21 @@ function Navbar() {
             Services
           </NavLink>
 
-          {/* <NavLink
-            to="/projects"
+          <NavLink
+            to="/blog"
             onClick={closeMenu}
             className="glass-nav-link"
           >
-            Projects
-          </NavLink> */}
+            Blog
+          </NavLink>
+
+          <NavLink
+            to="/showcase"
+            onClick={closeMenu}
+            className="glass-nav-link"
+          >
+            Showcase
+          </NavLink>
 
           <NavLink
             to="/contact"

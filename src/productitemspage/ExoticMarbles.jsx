@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/StoneCard.css";
+import ProductSchema from "../components/ProductSchema";
 
 import neroMarquinaImg from "../assets/productsitems/Exotic Marbles/Nero Marquina Marble.jpg";
 import emperadorImg from "../assets/productsitems/Exotic Marbles/Emperador Marble.jpg";
@@ -52,6 +53,8 @@ function ExoticMarbles() {
         <p className="text-white-50 mb-4">
           Bold, dramatic marbles that make a strong design statement.
         </p>
+        
+        <ProductSchema items={exoticMarbles} />
 
         <div className="row gy-4">
           {exoticMarbles.map((item) => {

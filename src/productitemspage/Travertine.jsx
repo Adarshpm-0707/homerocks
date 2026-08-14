@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/StoneCard.css";
+import ProductSchema from "../components/ProductSchema";
 
 import ivoryTravertineImg from "../assets/productsitems/Travertine/Travertine Beige marble.jpg";
 import noceTravertineImg from "../assets/productsitems/Travertine/Noce Travertine.jpg";
@@ -51,6 +52,8 @@ function Travertine() {
         <p className="text-white-50 mb-4">
           Warm, textured stones ideal for earthy and timeless interiors.
         </p>
+        
+        <ProductSchema items={travertineStones} />
 
         <div className="row gy-4">
           {travertineStones.map((item) => {

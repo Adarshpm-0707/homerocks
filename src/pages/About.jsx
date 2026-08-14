@@ -2,9 +2,9 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/About.css";
 
-import warehouseImg from "../assets/wharehouse.png";
-import processingImg from "../assets/factory.jpg";
-import installedProjectImg from "../assets/installed-project.jpg";
+import warehouseImg from "../assets/wharehouse.webp";
+import processingImg from "../assets/factory.webp";
+import installedProjectImg from "../assets/installed-project.webp";
 
 export default function About() {
   const rootRef = useRef(null);
