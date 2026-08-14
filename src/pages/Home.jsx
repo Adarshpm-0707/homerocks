@@ -3,13 +3,14 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle, BadgeDollarSign, Wrench, Bus } from "lucide-react";
 
-import italianMarbleImg from "../assets/italian marble.jpg";
-import onyxQuartziteImg from "../assets/onyx-quartzite.jpg";
+import italianMarbleImg from "../assets/italian marble.webp";
+import onyxQuartziteImg from "../assets/onyx-quartzite.webp";
 import carraraImg from "../assets/productsitems/Exotic Marbles/Carrara Marble.jpg";
 import calacattaImg from "../assets/productsitems/Exotic Marbles/Calacatta Marble.jpg";
 import exoticStoneImg from "../assets/productsitems/Exotic Marbles/Nero Marquina Marble.jpg";
 
 import Carousel from "bootstrap/js/dist/carousel";
+
 import "../styles/Home.css";
 
 function Home() {
@@ -76,7 +77,7 @@ function Home() {
                 <div className="row align-items-center gy-4">
                   <div className="col-lg-6">
                     <h1 className="hr-hero-title reveal" data-reveal="left">
-                      Premium Stones <br /> for Luxury Interiors
+                      North Malabar's Largest Imported Marble & Granite showroom
                     </h1>
                     <p
                       className="hr-hero-subtitle reveal delay-1"
@@ -172,9 +173,9 @@ function Home() {
               <div className="container">
                 <div className="row align-items-center gy-4">
                   <div className="col-lg-6">
-                    <h1 className="hr-hero-title reveal" data-reveal="left">
+                    <h2 className="hr-hero-title reveal" data-reveal="left">
                       Handpicked Italian Collections
-                    </h1>
+                    </h2>
                     <p
                       className="hr-hero-subtitle reveal delay-1"
                       data-reveal="left"
@@ -268,9 +269,9 @@ function Home() {
               <div className="container">
                 <div className="row align-items-center gy-4">
                   <div className="col-lg-6">
-                    <h1 className="hr-hero-title reveal" data-reveal="left">
+                    <h2 className="hr-hero-title reveal" data-reveal="left">
                       Onyx & Exotic Stones
-                    </h1>
+                    </h2>
                     <p
                       className="hr-hero-subtitle reveal delay-1"
                       data-reveal="left"
@@ -425,6 +426,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+
     </>
   );
 }

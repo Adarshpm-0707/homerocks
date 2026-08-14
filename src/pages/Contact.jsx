@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../styles/Contact.css";
-import mapImg from "../assets/map.png";
+import mapImg from "../assets/map.webp";
 import emailjs from "@emailjs/browser";
 
 /* ===== Replace with your actual IDs (or use env vars) ===== */

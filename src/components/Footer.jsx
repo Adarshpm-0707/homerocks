@@ -42,11 +42,6 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="hr-footer-link">
-                  Projects
-                </Link>
-              </li>
-              <li>
                 <Link to="/get-measurement" className="hr-footer-link">
                   Get Measurement
                 </Link>
@@ -70,6 +65,18 @@ function Footer() {
                 className="hr-footer-link"
               >
                 +91 8113001110
+              </a>
+            </p>
+
+            <p className="small mb-1">
+              Instagram:{" "}
+              <a
+                href="https://www.instagram.com/homerocksindia"
+                target="_blank"
+                rel="noreferrer"
+                className="hr-footer-link"
+              >
+                @homerocksindia
               </a>
             </p>
 

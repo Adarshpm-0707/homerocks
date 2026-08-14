@@ -86,6 +86,21 @@
   font-weight: 600;
 }
 
+/* Light theme support for blog pages */
+body.blog-page .glass-nav-link {
+  color: #fff; /* White over the dark hero */
+}
+
+body.blog-page .glass-nav-menu {
+  background: rgba(0, 0, 0, 0.35); /* Darker backdrop for better contrast */
+  border-color: rgba(255,255,255,0.2);
+}
+
+body.blog-page .glass-nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
 /* CTA button */
 .glass-nav-cta {
   background: rgba(255, 80, 80, 0.9);

@@ -113,7 +113,10 @@ function Products() {
                           muted
                           loop
                           playsInline
-                        />
+                          title={`${cat.name} overview video`}
+                        >
+                          <track kind="captions" srcLang="en" label="English" />
+                        </video>
                         <div className="hr-category-label">{cat.name}</div>
                       </>
                     ) : (

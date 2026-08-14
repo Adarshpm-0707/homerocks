@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/StoneCard.css";
+import ProductSchema from "../components/ProductSchema";
 
 // Images
 import carraraImg from "../assets/productsitems/italian marble/Carrara Marble.jpg";
@@ -48,6 +49,8 @@ function ItalianMarble() {
         <p className="text-white-50 mb-4">
           Classic Italian marbles known for their elegance and luxury.
         </p>
+
+        <ProductSchema items={italianMarbles} />
 
         <div className="row gy-4">
           {italianMarbles.map((item) => {
