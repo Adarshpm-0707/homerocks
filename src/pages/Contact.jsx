@@ -111,15 +111,15 @@ function Contact() {
   return (
     <section className="py-5">
       <div className="container">
-        <h2 className="section-title fs-1 text-white text-center mb-3">Contact Us</h2>
+        <h1 className="section-title fs-1 text-white text-center mb-3">Contact HOMEROCKS Kannur</h1>
         <p className="text-white text-center mb-5">
-          Visit our showroom / warehouse or contact us for product details,
+          Visit our showroom / warehouse in Kuppam, Taliparamba or contact us for marble &amp; granite details,
           pricing, and project support.
         </p>
 
         <div className="row gy-4 align-items-start">
           <div className="col-lg-5">
-            <h5 className="fw-semibold mb-3 fs-1 text-white">Reach Us</h5>
+            <h2 className="fw-semibold mb-3 fs-3 text-white">Reach Our Showroom</h2>
             <p className="mb-1 text-white"><strong>Phone:</strong> +91 8113001110</p>
             <p className="mb-1 text-white"><strong>Address:</strong> HOMEROCKS, Kuppam, Taliparamba, Kannur, Kerala 670502</p>
             <p className="mb-3 text-white"><strong>Business hours:</strong> Mon–Sat, 9:00 AM – 7:00 PM</p>
@@ -127,15 +127,15 @@ function Contact() {
               <a href={`https://wa.me/918113001110`} target="_blank" rel="noreferrer" className="btn btn-outline-primary">WhatsApp Chat</a>
             </div>
             <div className="hr-map-image mt-2">
-              <a href="https://maps.app.goo.gl/UU6RtaQQWGrQB1d6A?g_st=ipc" target="_blank" rel="noreferrer">
-                <img src={mapImg} alt="Map Location" className="img-fluid hr-map-photo" />
+              <a href="https://maps.app.goo.gl/UU6RtaQQWGrQB1d6A?g_st=ipc" target="_blank" rel="noreferrer" aria-label="Open Google Maps Location">
+                <img src={mapImg} alt="HOMEROCKS Showroom Map Location in Kuppam Taliparamba Kannur" className="img-fluid hr-map-photo" loading="lazy" width="450" height="250" />
               </a>
             </div>
           </div>
 
           <div className="col-lg-7">
             <form ref={formRef} onSubmit={handleSubmit} className="contact-card p-4">
-              <h5 className="fw-semibold mb-3 text-white">Enquiry Form</h5>
+              <h2 className="fw-semibold mb-3 fs-4 text-white">Send an Enquiry</h2>
 
               <div className="mb-3">
                 <label className="form-label text-white">Full Name</label>

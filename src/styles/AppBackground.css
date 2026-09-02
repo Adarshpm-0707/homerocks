@@ -61,7 +61,7 @@ html, body {
   background: rgba(0, 0, 0, var(--overlay));
 }
 
-/* ---------- NON-HOME: gradient layer ---------- */
+/* ---------- NON-HOME / MOBILE: gradient layer ---------- */
 .app-bg-gradient {
   z-index: 0;
   background:
@@ -69,8 +69,17 @@ html, body {
     radial-gradient(1000px 600px at 90% -10%, #10283f 0%, transparent 60%),
     linear-gradient(180deg, var(--bg-start), var(--bg-end));
   background-attachment: fixed;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .app-bg-gradient {
+    background-attachment: scroll;
+  }
 }
 
 /* Optional: smooth page enter */
 .fade-enter { opacity: 0; transform: translateY(10px); }
 .fade-show  { opacity: 1; transform: none; transition: .6s ease; }
+

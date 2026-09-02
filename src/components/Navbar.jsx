@@ -13,8 +13,8 @@ function Navbar() {
     <header className="glass-nav">
       <nav className="container glass-nav-inner">
         {/* Logo */}
-        <Link to="/" className="glass-nav-brand" onClick={closeMenu}>
-          <img src={logo} alt="HOMEROCKS Logo" className="nav-logo" />
+        <Link to="/" className="glass-nav-brand" onClick={closeMenu} aria-label="HOMEROCKS Homepage">
+          <img src={logo} alt="HOMEROCKS Logo - Premium Marble & Granite Showroom" className="nav-logo" width="160" height="42" />
         </Link>
 
         {/* Mobile toggler */}
@@ -23,6 +23,7 @@ function Navbar() {
           type="button"
           onClick={toggleMenu}
           aria-label="Toggle navigation"
+          aria-expanded={isOpen}
         >
           <span />
           <span />
@@ -31,59 +32,35 @@ function Navbar() {
 
         {/* Nav items in glass container */}
         <div className={`glass-nav-menu ${isOpen ? "open" : ""}`}>
-          <NavLink
-            to="/"
-            onClick={closeMenu}
-            className="glass-nav-link"
-          >
+          <NavLink to="/" onClick={closeMenu} className="glass-nav-link">
             Home
           </NavLink>
 
-          <NavLink
-            to="/about"
-            onClick={closeMenu}
-            className="glass-nav-link"
-          >
+          <NavLink to="/about" onClick={closeMenu} className="glass-nav-link">
             About
           </NavLink>
 
-          <NavLink
-            to="/products"
-            onClick={closeMenu}
-            className="glass-nav-link"
-          >
-            Products
+          <NavLink to="/products" onClick={closeMenu} className="glass-nav-link">
+            Collections
           </NavLink>
 
-          <NavLink
-            to="/services"
-            onClick={closeMenu}
-            className="glass-nav-link"
-          >
+          <NavLink to="/projects" onClick={closeMenu} className="glass-nav-link">
+            Projects
+          </NavLink>
+
+          <NavLink to="/services" onClick={closeMenu} className="glass-nav-link">
             Services
           </NavLink>
 
-          <NavLink
-            to="/blog"
-            onClick={closeMenu}
-            className="glass-nav-link"
-          >
+          <NavLink to="/blog" onClick={closeMenu} className="glass-nav-link">
             Blog
           </NavLink>
 
-          <NavLink
-            to="/showcase"
-            onClick={closeMenu}
-            className="glass-nav-link"
-          >
+          <NavLink to="/showcase" onClick={closeMenu} className="glass-nav-link">
             Showcase
           </NavLink>
 
-          <NavLink
-            to="/contact"
-            onClick={closeMenu}
-            className="glass-nav-link"
-          >
+          <NavLink to="/contact" onClick={closeMenu} className="glass-nav-link">
             Contact
           </NavLink>
 

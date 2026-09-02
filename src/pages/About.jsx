@@ -1,5 +1,6 @@
 // src/pages/About.jsx
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../styles/About.css";
 
 import warehouseImg from "../assets/wharehouse.webp";
@@ -46,7 +47,7 @@ export default function About() {
         {/* HERO */}
         <header className="glass hero reveal-up">
           <span className="kicker anim-float">Since 1995 • Aleef Heritage</span>
-          <h1 className="reveal-up delay-1">ABOUT HOMEROCKS</h1>
+          <h1 className="reveal-up delay-1">ABOUT HOMEROCKS KANNUR</h1>
           <p className="muted reveal-up delay-2">
             Bringing the world’s finest stones closer to homeowners, architects, and builders —
             with transparency, consistent quality, and complete service support.
@@ -86,7 +87,7 @@ export default function About() {
         <section id="story" className="glass block reveal-up" style={{ marginBottom: 12 }}>
           <h2>Our Story</h2>
           <p className="muted">
-                  HOMEROCKS stands on the strong foundation of Aleef, established in 1995. Over three
+            HOMEROCKS stands on the strong foundation of Aleef, established in 1995. Over three
             decades, Aleef has grown into a trusted name known for honesty, quality, and customer
             loyalty. This heritage continues through HOMEROCKS — combining long-standing industry
             relationships with modern processes and customer-focused service.
@@ -162,7 +163,7 @@ export default function About() {
             {src: installedProjectImg, alt: "Installed Project", cls:"reveal-right delay-2"},
           ].map((it) => (
             <figure className={`glass image-card card ${it.cls}`} key={it.alt}>
-              <img src={it.src} alt={it.alt} />
+              <img src={it.src} alt={it.alt} loading="lazy" width="400" height="260" />
               <figcaption>{it.alt}</figcaption>
             </figure>
           ))}
@@ -173,8 +174,8 @@ export default function About() {
           <h3>Ready to spec HOMEROCKS for your next project?</h3>
           <p className="muted">Talk to us for curated selections, pricing, and site support.</p>
           <div className="actions">
-            <a href="/products" className="btn btn-danger anim-pulse">View Collections</a>
-            <a href="/contact" className="btn btn-danger">Contact Us</a>
+            <Link to="/products" className="btn btn-danger anim-pulse">View Collections</Link>
+            <Link to="/contact" className="btn btn-danger">Contact Us</Link>
           </div>
         </section>
       </div>

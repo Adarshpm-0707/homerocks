@@ -82,12 +82,12 @@ function Products() {
         
         {/* Heading */}
         <div className="text-center mb-4">
-          <h2 className="section-title text-white mb-2 reveal fs-1" data-reveal="up">
-            Stone Collections
+          <h1 className="section-title text-white mb-2 reveal fs-1" data-reveal="up">
+            Marble &amp; Granite Collections in Kannur
+          </h1>
+          <h2 className="fs-5 text-white-50 mb-0 reveal delay-1 fw-normal" data-reveal="up">
+            Explore handpicked Italian marble, exotic onyx, premium granites, and quartz surfaces for luxury Kerala spaces.
           </h2>
-          <p className="text-white mb-0 reveal delay-1" data-reveal="up">
-            Explore premium stones carefully curated for homes, villas, and commercial spaces.
-          </p>
         </div>
 
         {/* Horizontal scroll */}
@@ -113,6 +113,7 @@ function Products() {
                           muted
                           loop
                           playsInline
+                          preload="none"
                           title={`${cat.name} overview video`}
                         >
                           <track kind="captions" srcLang="en" label="English" />

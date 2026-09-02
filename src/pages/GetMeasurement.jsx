@@ -85,13 +85,12 @@ function GetMeasurement() {
   return (
     <section className="py-5 ">
       <div className="container ">
-        <h2 className="section-title text-center fs-1 text-white mb-3">
-          Book Home Measurement
+        <h1 className="section-title text-center fs-1 text-white mb-3">
+          Book Free Stone Measurement in Kannur
+        </h1>
+        <h2 className="text-white-50 text-center mb-4 fs-6 fw-normal max-w-700 mx-auto">
+          Share your project details and our stone specialist will visit your site across North Malabar for accurate measurement, wastage calculation, and material suggestions.
         </h2>
-        <p className="text-white text-center mb-4">
-          Share your details and our team will visit your site for accurate
-          measurement and stone suggestions.
-        </p>
 
         <div className="row gy-4">
           {/* LEFT: FORM */}
